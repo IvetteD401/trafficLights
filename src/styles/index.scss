@@ -11,3 +11,34 @@
     import 'relative/path/to/stylesheet.scss';
 
 */
+
+.lightContainer {
+    background-color: rgb(27, 26, 26);
+    width: 200px;
+    margin: 20px auto;
+}
+.off {
+    opacity: .15 !important;
+}
+.light {
+    height: 150px;
+    margin: 20px auto;
+    border-radius: 50%;
+    padding: 30px;
+}
+
+.red {
+    background-color: red;
+    width: 80%;
+    
+}
+.yellow {
+    background-color: yellow;
+    width: 80%;
+    
+}
+.green {
+    background-color: green;
+    width: 80%;
+    
+}

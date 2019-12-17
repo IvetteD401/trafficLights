@@ -31,10 +31,12 @@ export function Home() {
 	};
 	return (
 		<div className="text-center mt-5">
-			<div className="lightContainer">
-				<div className={lightRed} onClick={changeRed} />
-				<div className={lightYellow} onClick={changeYellow} />
-				<div className={lightGreen} onClick={changeGreen} />
+			<div className="toplight">
+				<div className="lightContainer">
+					<div className={lightRed} onClick={changeRed} />
+					<div className={lightYellow} onClick={changeYellow} />
+					<div className={lightGreen} onClick={changeGreen} />
+				</div>
 			</div>
 		</div>
 	);

@@ -1,39 +1,71 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 //include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+// import rigoImage from "../../img/rigo-baby.jpg";
 
 //create your first component
 export function Home() {
-	const [lightRed, setLight1] = useState("light red off");
-	var myVar = setInterval(myTimer, 5000);
-	function myTimer() {
-		var d = [changeGreen(), changeRed(), changeYellow()];
-		document.getElementById("auto").innerHTML = d;
-	}
+	const [lightRed, setLightRed] = useState("light red off");
+	const [lightYellow, setLightYellow] = useState("light yellow off");
+	const [lightGreen, setLightGreen] = useState("light green off");
+	const [counter, setCounter] = useState(0);
+	const [auto, setAuto] = useState(false);
 	const changeRed = () => {
 		if (lightRed === "light red off") {
-			setLight1("light red");
+			setLightRed("light red");
 		} else {
-			setLight1("light red off");
+			setLightRed("light red off");
 		}
 	};
-	const [lightYellow, setLight2] = useState("light yellow off");
 	const changeYellow = () => {
 		if (lightYellow === "light yellow off") {
-			setLight2("light yellow");
+			setLightYellow("light yellow");
 		} else {
-			setLight2("light yellow off");
+			setLightYellow("light yellow off");
 		}
 	};
-	const [lightGreen, setLight3] = useState("light green off");
 	const changeGreen = () => {
 		if (lightGreen === "light green off") {
-			setLight3("light green");
+			setLightGreen("light green");
 		} else {
-			setLight3("light green off");
+			setLightGreen("light green off");
 		}
 	};
+
+	useEffect(() => {
+		setTimeout(() => {
+			setCounter(counter + 1);
+		}, 1000);
+		if (auto === true && counter === 1) {
+			setLightGreen("light green");
+			setLightRed("light red off");
+			setLightYellow("light yellow off");
+		}
+		if (auto === true && counter === 6) {
+			setLightRed("light red off");
+			setLightYellow("light yellow");
+			setLightGreen("light green off");
+		}
+		if (auto === true && counter === 8) {
+			setLightYellow("light yellow off");
+			setLightRed("light red");
+			setLightGreen("light green off");
+		}
+		if (counter === 12) {
+			setCounter(0);
+		}
+	});
+
+	const OnLoop = () => {
+		setAuto(true);
+	};
+
+	const OffLoop = () => {
+		setLightYellow("light yellow off");
+		setLightRed("light red off");
+		setLightGreen("light green off");
+	};
+
 	return (
 		<>
 			<div className="text-center mt-5">
@@ -46,13 +78,20 @@ export function Home() {
 				</div>
 			</div>
 			<div className="btn-group" role="group">
-				<button type="button" className="btn btn-success" id="auto">
+				<button
+					type="button"
+					className="btn btn-success"
+					id="auto"
+					onClick={OnLoop}>
 					On
 				</button>
 				<button type="button" className="btn btn-warning">
 					Click
 				</button>
-				<button type="button" className="btn btn-danger">
+				<button
+					type="button"
+					className="btn btn-danger"
+					onClick={OffLoop}>
 					Off
 				</button>
 			</div>

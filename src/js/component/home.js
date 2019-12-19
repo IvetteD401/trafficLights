@@ -36,22 +36,19 @@ export function Home() {
 		setTimeout(() => {
 			setCounter(counter + 1);
 		}, 1000);
-		if (auto === true && counter === 1) {
+		if (auto === true && counter < 6) {
 			setLightGreen("light green");
 			setLightRed("light red off");
 			setLightYellow("light yellow off");
-		}
-		if (auto === true && counter === 6) {
+		} else if (auto === true && counter < 8) {
 			setLightRed("light red off");
 			setLightYellow("light yellow");
 			setLightGreen("light green off");
-		}
-		if (auto === true && counter === 8) {
+		} else if (auto === true && counter < 12) {
 			setLightYellow("light yellow off");
 			setLightRed("light red");
 			setLightGreen("light green off");
-		}
-		if (counter === 12) {
+		} else if (counter === 12) {
 			setCounter(0);
 		}
 	});
@@ -61,9 +58,10 @@ export function Home() {
 	};
 
 	const OffLoop = () => {
+		setAuto(false);
+		setLightGreen("light green off");
 		setLightYellow("light yellow off");
 		setLightRed("light red off");
-		setLightGreen("light green off");
 	};
 
 	return (
@@ -77,6 +75,7 @@ export function Home() {
 					</div>
 				</div>
 			</div>
+
 			<div className="btn-group" role="group">
 				<button
 					type="button"

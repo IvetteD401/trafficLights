@@ -13,6 +13,8 @@ export function Home() {
 	const changeRed = () => {
 		if (lightRed === "light red off") {
 			setLightRed("light red");
+			setLightYellow("light yellow off");
+			setLightGreen("light green off");
 		} else {
 			setLightRed("light red off");
 		}
@@ -20,6 +22,8 @@ export function Home() {
 	const changeYellow = () => {
 		if (lightYellow === "light yellow off") {
 			setLightYellow("light yellow");
+			setLightGreen("light green off");
+			setLightRed("light red off");
 		} else {
 			setLightYellow("light yellow off");
 		}
@@ -27,6 +31,8 @@ export function Home() {
 	const changeGreen = () => {
 		if (lightGreen === "light green off") {
 			setLightGreen("light green");
+			setLightRed("light red off");
+			setLightYellow("light yellow off");
 		} else {
 			setLightGreen("light green off");
 		}
